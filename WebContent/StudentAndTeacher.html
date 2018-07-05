@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	AddTeachers:
+	<input type="text" name="AddTeacher" id="AddTeacher" value="">
+	<input type="button" value="AddTeachers" onclick="addTeachers()";>
+	</br>
+	</br> AddStudents:
+	<input type="text" name="AddStudents" id="AddStudent" value="">
+	<input type="button" value="AddStudents" onclick="addStudents()";>
+	</br>
+	</br> showTeachers:
+	<input type="button" value="showTeachers" onclick="showTeachers()";>
+	</br>
+	</br> showStudents:
+	<input type="button" value="showStudents" onclick="showStudents()";>
+	</br>
+	</br> DeleteTeacher:
+	<input type="text" name="DeleteTeacher" id="DeleteTeacher" value="">
+	<input type="button" value="DeleteTeacher" onclick="deleteTeacher()";>
+	</br>
+	</br> DeleteStudent:
+	<input type="text" name="DeleteStudent" id="DeleteStudent" value="">
+	<input type="button" value="DeleteStudent" onclick="DeleteStudent()";>
+	</br>
+	</br>
+	<script type="text/javascript">
+		var StudentList = new Array();
+		var TeacherList = new Array();
+		function addTeachers() 
+		{
+
+			var Teacher = document.getElementById("AddTeacher").value;
+			TeacherList.push(Teacher);
+			document.getElementById("AddTeacher").value = "";
+		}
+		function addStudents() 
+		{
+			var Student = document.getElementById("AddStudent").value;
+			StudentList.push(Student);
+			document.getElementById("AddStudent").value = "";
+		}
+
+		function deleteTeacher() 
+		{
+			
+			var item=document.getElementById("DeleteTeacher").value;
+			for ( var i in TeacherList) {
+				if (TeacherList[i] == item) {
+					TeacherList.splice(i, 1);
+					break;
+				}
+			}
+			
+			document.getElementById("DeleteTeacher").value="";
+		}
+		
+		function DeleteStudent() 
+		{
+			
+			var item=document.getElementById("DeleteStudent").value;
+			for ( var i in StudentList) {
+				if (StudentList[i] == item) {
+					StudentList.splice(i, 1);
+					break;
+				}
+			}
+			
+			document.getElementById("DeleteStudent").value="";
+		}
+
+		function showTeachers() 
+		{
+			document.write(TeacherList);
+		}
+		function showStudents() 
+		{
+			document.write(StudentList);
+		}
+	</script>
+</body>
+</html>
